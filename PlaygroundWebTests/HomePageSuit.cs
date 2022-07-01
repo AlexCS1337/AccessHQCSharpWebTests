@@ -41,7 +41,7 @@ namespace PlaygroundWebTests
 
             //Act
             var planetPage = new PlanetPage(driver);
-            planetPage.clickExplore(planetPage.getPlanet(p => p.getName().ToLower("Earth")));
+            planetPage.clickExplore(planetPage.getPlanet(p => p.getName()Equals(p,"Earth", StringComparison.OrdinalIgnoreCase)));
 
             //Assert
             Assert.AreEqual("Exploring Earth", planetPage.getPopupText());

@@ -15,7 +15,7 @@ namespace PlaygroundWebTests
 
         internal object getPlanet(Predicate<Planet> testLogic)
         {
-            for (WebElement planetElement : driver.FindElement(By.ClassName("planet")))
+            foreach (WebElement planetElement in driver.FindElements(By.ClassName("planet")))
             {
                 var planet = new Planet(planetElement);
                 if (testLogic.test(planet))
@@ -45,7 +45,7 @@ namespace PlaygroundWebTests
 
         internal WebElement getPopupMessage()
         {
-            return driver.FindElement(By.ClassName("popup-message"));
+            return (WebElement)driver.FindElement(By.ClassName("popup-message"));
         }
     }
 }
