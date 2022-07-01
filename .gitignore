@@ -30,8 +30,8 @@ target/*
 
 # Visual Studio auto-input
 TestResults/*
-bin/*
-obj/*
+/PlaygroundWebTests/bin/*
+/PlaygroundWebTests/obj/*
 .vs/*
 
 # backup files
