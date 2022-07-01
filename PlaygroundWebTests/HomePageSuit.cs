@@ -40,11 +40,17 @@ namespace PlaygroundWebTests
             driver.FindElement(By.CssSelector("[aria-label=planets]")).Click();
 
             //Act
-            var planetPage = new PlanetPage(driver);
-            planetPage.clickExplore(planetPage.getPlanet(p => p.getName()Equals(p,"Earth", StringComparison.OrdinalIgnoreCase)));
+            String planetName = GetPlanetName();
+            PlanetPage planetPage = new PlanetPage(driver);
+            planetPage.getPlanet(p => p.getName() == planetName);
 
             //Assert
             Assert.AreEqual("Exploring Earth", planetPage.getPopupText());
+        }
+
+        private string GetPlanetName()
+        {
+            return "Earth";
         }
 
         [TestCleanup]

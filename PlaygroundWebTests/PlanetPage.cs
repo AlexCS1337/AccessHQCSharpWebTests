@@ -13,14 +13,15 @@ namespace PlaygroundWebTests
             this.driver = driver;
         }
 
-        internal object getPlanet(Predicate<Planet> testLogic)
+        internal object getPlanet(Predicate<Planet> strategy)
         {
             foreach (WebElement planetElement in driver.FindElements(By.ClassName("planet")))
             {
                 var planet = new Planet(planetElement);
-                if (testLogic.test(planet))
+                if (strategy.Invoke(planet))
                 {
-                    return planet;
+                    //return planet;
+                    planet.clickExplore();
                 }
             }
             throw new NotFoundException("Could not find planet");
